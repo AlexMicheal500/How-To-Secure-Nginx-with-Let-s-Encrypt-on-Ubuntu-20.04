@@ -1,0 +1,30 @@
+BELOW IS THE COMMAND AND OUTPUT 
+root@ip-172-31-82-93:/home/ubuntu# sudo certbot --nginx -d www.alexmichealserver.ddns.net
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Requesting a certificate for www.alexmichealserver.ddns.net
+
+Certbot failed to authenticate some domains (authenticator: nginx). The Certificate Authority reported these problems:
+  Domain: www.alexmichealserver.ddns.net
+  Type:   dns
+  Detail: DNS problem: NXDOMAIN looking up A for www.alexmichealserver.ddns.net - check that a DNS record exists for this domain; DNS problem: NXDOMAIN looking up AAAA for www.alexmichealserver.ddns.net - check that a DNS record exists for this domain
+
+Hint: The Certificate Authority failed to verify the temporary nginx configuration changes made by Certbot. Ensure the listed domains point to this nginx server and that it is accessible from the internet.
+
+Some challenges have failed.
+Ask for help or search for solutions at https://community.letsencrypt.org. See the logfile /var/log/letsencrypt/letsencrypt.log or re-run Certbot with -v for more details.
+root@ip-172-31-82-93:/home/ubuntu# sudo certbot --nginx -d alexmichealserver.ddns.net
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Requesting a certificate for alexmichealserver.ddns.net
+
+SOLUTION:
+...
+server_name example.com www.example.com;
+...
+
+CHANGE THE ABOVE TO:
+SOLUTION:
+...
+server_name example.com;
+...
+THE ABOVE IS BECAUSE WE DO NOT HAVE WWW.EXAMPLE YET ACTIVATED AS A DNS SO CERTIFICATE DOES NOT RECOGNIZE IT AND THAT IS 
+WHY WE HAD A CHALLENGED FAILED ERROR.
