@@ -1,1 +1,17 @@
 https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-reverse-proxy-on-ubuntu-22-04
+
+When you run:
+sudo nano /etc/nginx/sites-available/your_domain
+Make sure to use a sample like the one below:
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name alexmichealserver.ddns.net;
+
+    location / {
+        proxy_pass http://44.203.88.229:8081;
+        include proxy_params;
+    }
+}
