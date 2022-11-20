@@ -1,5 +1,5 @@
 https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-reverse-proxy-on-ubuntu-22-04
-
+VIDEO: https://www.youtube.com/watch?v=_EBARqreeao&t=9s
 When you run:
 sudo nano /etc/nginx/sites-available/your_domain
 Make sure to use a sample like the one below:
