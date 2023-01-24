@@ -1,0 +1,475 @@
+ubuntu@ip-172-31-61-187:~$ ls
+docker-compose-ce-SHA512SUM.txt  docker-compose-ce.yaml
+ubuntu@ip-172-31-61-187:~$ sudo su
+root@ip-172-31-61-187:/home/ubuntu# ls
+docker-compose-ce-SHA512SUM.txt  docker-compose-ce.yaml
+root@ip-172-31-61-187:/home/ubuntu# nano docker-compose-ce.yaml
+root@ip-172-31-61-187:/home/ubuntu# docker-compose -f docker-compose-ce.yaml up -d
+ubuntu_db_1 is up-to-date
+Recreating ubuntu_passbolt_1 ... done
+root@ip-172-31-61-187:/home/ubuntu# docker ps
+CONTAINER ID   IMAGE                         COMMAND                  CREATED          STATUS          PORTS                                            NAMES
+f4e0408fe299   passbolt/passbolt:latest-ce   "/usr/bin/wait-for.s…"   20 seconds ago   Up 19 seconds   443/tcp, 0.0.0.0:8080->80/tcp, :::8080->80/tcp   ubuntu_passbolt_1
+f687c2dd1890   mariadb:10.3                  "docker-entrypoint.s…"   8 minutes ago    Up 8 minutes    3306/tcp                                         ubuntu_db_1
+root@ip-172-31-61-187:/home/ubuntu# docker rm -f f4e0408fe299 f687c2dd1890
+f4e0408fe299
+f687c2dd1890
+root@ip-172-31-61-187:/home/ubuntu# ls
+docker-compose-ce-SHA512SUM.txt  docker-compose-ce.yaml
+root@ip-172-31-61-187:/home/ubuntu# docker images
+REPOSITORY          TAG         IMAGE ID       CREATED       SIZE
+passbolt/passbolt   latest-ce   61c200e9d6a9   4 days ago    307MB
+mariadb             10.3        a926ab77a4d9   6 weeks ago   378MB
+root@ip-172-31-61-187:/home/ubuntu# docker rmi  61c200e9d6a9  a926ab77a4d9
+Untagged: passbolt/passbolt:latest-ce
+Untagged: passbolt/passbolt@sha256:578b33736886180f79bed0d6d5a5572092bc283f367302c768184928fa61a1e8
+Deleted: sha256:61c200e9d6a99fc4dd829a649c851c2a4081b8231c32eeaf85f24cf43dbda2d9
+Deleted: sha256:ad37f62846c86ef617a3b08272669de3c25df3490c3e915350fdb6a197d1c8a5
+Deleted: sha256:990a6cc9278bd44a3211527d4256ff03c343b08ad88c8125103f4017adc353e3
+Deleted: sha256:35f8040ec5b5d5777f8c068ff8cdbe04920b660342e72335f057b7971ee4b4d8
+Deleted: sha256:b70faddec77de5a58d5b822d6eb3792ff0c6a3371854c2cfde3b3a347b3605ff
+Deleted: sha256:e1d0d5c4273595b98448b77ef2f04c78048fbfc813e1fe846e6e45534fd3b2ed
+Deleted: sha256:327ee336579a0d890a84451e216ae425fba21674fb420c078cb78d99f7c91e83
+Deleted: sha256:5de93f24082ed7a0bbd5ae0fec2938e3869b8812715bb6e4bff948edafd31aed
+Deleted: sha256:33a7f192385c1d06734ca4db652bdd313aa5fe6a0f8d9cc4d93ffe4df015e140
+Deleted: sha256:c7c1f5b0a9a37807d665bf36280ecec6710993f6f6d745d58f0feea677524776
+Deleted: sha256:e0ebcce831e999e47ecca61ba3d3b52847c58429865a43590280f9549338d80f
+Deleted: sha256:67a4178b7d47beb6a1f697a593bd0c6841c67eb0da00f2badefb05fd30671490
+Untagged: mariadb:10.3
+Untagged: mariadb@sha256:462fb3ca7c5cb7c8cfb995ba785cfeb42cc918c7391ab3037a7c17450c0252af
+Deleted: sha256:a926ab77a4d94522a822f3a094a1ddceecf6006fed333bb51b32e76eb3ec0c89
+Deleted: sha256:c477ae85bc2c8a238fc832af797332f21d5e47160b1603d461eb6e0f23a7a17f
+Deleted: sha256:f7eb6d40bddff84b04214b85b0dee8be9a63b2600c6a6005ac604cfd9514f71b
+Deleted: sha256:c419e03e454a7b5232936df1a209c42d4f2a91e21e2871321a8d87420644ab21
+Deleted: sha256:b33541f7654b3845f4e11ed45389eba05832e88b6b939500725249f151ee2c0f
+Deleted: sha256:57a5f09065c4aa93d53c16897db179845f1cb9984e1cf42879e61dbf8425ee6b
+Deleted: sha256:c35f042519fbfde9dfb042355eeb1b7670d0ee68f513e68d03ebcb7f79917fd1
+Deleted: sha256:12e556065b0b063ec3ac6f88251fbba9fc905d3bb990292ced1bd0c5b858344b
+Deleted: sha256:4314ee182224b4eeb300ed04a57eb107d61ea028fb36e4fa770d9d1c1607f025
+Deleted: sha256:0002c93bdb3704dd9e36ce5153ef637f84de253015f3ee330468dccdeacad60b
+root@ip-172-31-61-187:/home/ubuntu# docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+root@ip-172-31-61-187:/home/ubuntu# ls
+docker-compose-ce-SHA512SUM.txt  docker-compose-ce.yaml
+root@ip-172-31-61-187:/home/ubuntu# nano docker-compose-ce.yaml
+root@ip-172-31-61-187:/home/ubuntu# docker-compose -f docker-compose-ce.yaml up -d
+Pulling db (mariadb:10.3)...
+10.3: Pulling from library/mariadb
+846c0b181fff: Pull complete
+2279a7485340: Pull complete
+30c7fe7ba3fd: Pull complete
+6b43169afb5c: Pull complete
+350596f36f48: Pull complete
+b8780e9098a9: Pull complete
+09915c7e7390: Pull complete
+2b638ef4dd68: Pull complete
+f249ad958eaa: Pull complete
+Digest: sha256:462fb3ca7c5cb7c8cfb995ba785cfeb42cc918c7391ab3037a7c17450c0252af
+Status: Downloaded newer image for mariadb:10.3
+Pulling passbolt (passbolt/passbolt:latest-ce)...
+latest-ce: Pulling from passbolt/passbolt
+8740c948ffd4: Pull complete
+a22abfcd446c: Pull complete
+fe76c15ad7af: Pull complete
+9bac0607d319: Pull complete
+70bd67a29912: Pull complete
+19704c384164: Pull complete
+c53657f0f576: Pull complete
+7070a4ab74d9: Pull complete
+a0b497b0cb16: Pull complete
+12edfe3761c7: Pull complete
+9ec5e81082bc: Pull complete
+Digest: sha256:578b33736886180f79bed0d6d5a5572092bc283f367302c768184928fa61a1e8
+Status: Downloaded newer image for passbolt/passbolt:latest-ce
+Creating ubuntu_db_1 ... done
+Creating ubuntu_passbolt_1 ... done
+root@ip-172-31-61-187:/home/ubuntu# docker ps -a
+CONTAINER ID   IMAGE                         COMMAND                  CREATED         STATUS         PORTS
+      NAMES
+30960d3b8500   passbolt/passbolt:latest-ce   "/usr/bin/wait-for.s…"   8 seconds ago   Up 6 seconds   443/tcp, 0.0.0.0:8080->80/tcp, :::8080->80/tcp   ubuntu_passbolt_1
+e5012808e941   mariadb:10.3                  "docker-entrypoint.s…"   9 seconds ago   Up 7 seconds   3306/tcp
+      ubuntu_db_1
+root@ip-172-31-61-187:/home/ubuntu# sudo apt update
+Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Get:4 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Fetched 110 kB in 0s (266 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+9 packages can be upgraded. Run 'apt list --upgradable' to see them.
+root@ip-172-31-61-187:/home/ubuntu# sudo apt install nginx
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  fontconfig-config fonts-dejavu-core libdeflate0 libfontconfig1 libgd3 libjbig0 libjpeg-turbo8 libjpeg8 libnginx-mod-http-geoip2
+  libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter libnginx-mod-mail libnginx-mod-stream libnginx-mod-stream-geoip2 libtiff5
+Unpacking libnginx-mod-stream-geoip2 (1.18.0-6ubuntu14.3) ...
+Selecting previously unselected package nginx-core.
+Preparing to unpack .../18-nginx-core_1.18.0-6ubuntu14.3_amd64.deb ...
+Unpacking nginx-core (1.18.0-6ubuntu14.3) ...
+Selecting previously unselected package nginx.
+Preparing to unpack .../19-nginx_1.18.0-6ubuntu14.3_amd64.deb ...
+Unpacking nginx (1.18.0-6ubuntu14.3) ...
+Setting up libxpm4:amd64 (1:3.5.12-1ubuntu0.22.04.1) ...
+Setting up libdeflate0:amd64 (1.10-2) ...
+Setting up nginx-common (1.18.0-6ubuntu14.3) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /lib/systemd/system/nginx.service.
+Setting up libjbig0:amd64 (2.1-3.1ubuntu0.22.04.1) ...
+Setting up libnginx-mod-http-xslt-filter (1.18.0-6ubuntu14.3) ...
+Setting up fonts-dejavu-core (2.37-2build1) ...
+Setting up libjpeg-turbo8:amd64 (2.1.2-0ubuntu1) ...
+Setting up libwebp7:amd64 (1.2.2-2) ...
+Setting up libnginx-mod-http-geoip2 (1.18.0-6ubuntu14.3) ...
+Setting up libjpeg8:amd64 (8c-2ubuntu10) ...
+Setting up libnginx-mod-mail (1.18.0-6ubuntu14.3) ...
+Setting up fontconfig-config (2.13.1-4.2ubuntu5) ...
+Setting up libnginx-mod-stream (1.18.0-6ubuntu14.3) ...
+Setting up libtiff5:amd64 (4.3.0-6ubuntu0.3) ...
+Setting up libfontconfig1:amd64 (2.13.1-4.2ubuntu5) ...
+Setting up libnginx-mod-stream-geoip2 (1.18.0-6ubuntu14.3) ...
+Setting up libgd3:amd64 (2.3.0-2ubuntu2) ...
+Setting up libnginx-mod-http-image-filter (1.18.0-6ubuntu14.3) ...
+Setting up nginx-core (1.18.0-6ubuntu14.3) ...
+ * Upgrading binary nginx                                                                                                                [ OK ]
+Setting up nginx (1.18.0-6ubuntu14.3) ...
+Processing triggers for ufw (0.36.1-4build1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+root@ip-172-31-61-187:/home/ubuntu# sudo ufw app list
+Available applications:
+  Nginx Full
+  Nginx HTTP
+  Nginx HTTPS
+  OpenSSH
+root@ip-172-31-61-187:/home/ubuntu# sudo ufw allow 'Nginx HTTP'
+Rules updated
+Rules updated (v6)
+root@ip-172-31-61-187:/home/ubuntu# sudo ufw status
+Status: inactive
+root@ip-172-31-61-187:/home/ubuntu# sudo apt-get install ufw
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+ufw is already the newest version (0.36.1-4build1).
+ufw set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 9 not upgraded.
+root@ip-172-31-61-187:/home/ubuntu# sudo ufw allow ssh
+Rules updated
+Rules updated (v6)
+root@ip-172-31-61-187:/home/ubuntu# sudo ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+root@ip-172-31-61-187:/home/ubuntu# sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+Nginx HTTP                 ALLOW       Anywhere
+22/tcp                     ALLOW       Anywhere
+Nginx HTTP (v6)            ALLOW       Anywhere (v6)
+22/tcp (v6)                ALLOW       Anywhere (v6)
+
+root@ip-172-31-61-187:/home/ubuntu# systemctl status nginx
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2023-01-24 13:48:45 UTC; 1min 19s ago
+       Docs: man:nginx(8)
+    Process: 5708 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 5709 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+   Main PID: 5811 (nginx)
+      Tasks: 2 (limit: 1143)
+     Memory: 7.0M
+        CPU: 27ms
+     CGroup: /system.slice/nginx.service
+             ├─5811 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             └─5814 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+
+Jan 24 13:48:45 ip-172-31-61-187 systemd[1]: Starting A high performance web server and a reverse proxy server...
+Jan 24 13:48:45 ip-172-31-61-187 systemd[1]: Started A high performance web server and a reverse proxy server.
+root@ip-172-31-61-187:/home/ubuntu# sudo apt update
+Hit:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+9 packages can be upgraded. Run 'apt list --upgradable' to see them.
+root@ip-172-31-61-187:/home/ubuntu# sudo apt install nginx^C
+
+Command 'udo' not found, but can be installed with:
+apt install udo
+root@ip-172-31-61-187:/home/ubuntu# sudo apt install nginx
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+nginx is already the newest version (1.18.0-6ubuntu14.3).
+0 upgraded, 0 newly installed, 0 to remove and 9 not upgraded.
+root@ip-172-31-61-187:/home/ubuntu# sudo ufw allow 'Nginx HTTP'
+Skipping adding existing rule
+Skipping adding existing rule (v6)
+root@ip-172-31-61-187:/home/ubuntu# systemctl status nginx
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2023-01-24 13:48:45 UTC; 5min ago
+       Docs: man:nginx(8)
+    Process: 5708 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 5709 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+   Main PID: 5811 (nginx)
+      Tasks: 2 (limit: 1143)
+     Memory: 6.2M
+        CPU: 31ms
+     CGroup: /system.slice/nginx.service
+             ├─5811 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             └─5814 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+
+Jan 24 13:48:45 ip-172-31-61-187 systemd[1]: Starting A high performance web server and a reverse proxy server...
+Jan 24 13:48:45 ip-172-31-61-187 systemd[1]: Started A high performance web server and a reverse proxy server.
+root@ip-172-31-61-187:/home/ubuntu# sudo nano /etc/nginx/sites-available/
+root@ip-172-31-61-187:/home/ubuntu# cd sudo nano /etc/nginx/sites-available/
+bash: cd: too many arguments
+root@ip-172-31-61-187:/home/ubuntu# cd /etc/nginx/sites-available/
+root@ip-172-31-61-187:/etc/nginx/sites-available# ls
+default
+root@ip-172-31-61-187:/etc/nginx/sites-available# nano default
+root@ip-172-31-61-187:/etc/nginx/sites-available# sudo nano /etc/nginx/sites-available/your_domain
+root@ip-172-31-61-187:/etc/nginx/sites-available# sudo ln -s /etc/nginx/sites-available/your_domain /etc/nginx/sites-enabled/
+root@ip-172-31-61-187:/etc/nginx/sites-available# sudo ln -s /etc/nginx/sites-available/passbin.ddns.net /etc/nginx/sites-enabled/
+root@ip-172-31-61-187:/etc/nginx/sites-available# ls
+default  your_domain
+root@ip-172-31-61-187:/etc/nginx/sites-available# nano  your_domain
+root@ip-172-31-61-187:/etc/nginx/sites-available# rm your_domain
+root@ip-172-31-61-187:/etc/nginx/sites-available# ls
+default
+root@ip-172-31-61-187:/etc/nginx/sites-available# cd /etc/nginx/sites-enabled/
+root@ip-172-31-61-187:/etc/nginx/sites-enabled# ls
+default  passbin.ddns.net  your_domain
+root@ip-172-31-61-187:/etc/nginx/sites-enabled# rm passbin.ddns.net  your_domain
+root@ip-172-31-61-187:/etc/nginx/sites-enabled# ls
+default
+root@ip-172-31-61-187:/etc/nginx/sites-enabled# cd /etc/nginx/sites-available/
+root@ip-172-31-61-187:/etc/nginx/sites-available# ls
+default
+root@ip-172-31-61-187:/etc/nginx/sites-available# sudo ln -s /etc/nginx/sites-available/passbin.ddns.net /etc/nginx/sites-enabled/
+root@ip-172-31-61-187:/etc/nginx/sites-available# ls
+default
+root@ip-172-31-61-187:/etc/nginx/sites-available# cd /etc/nginx/sites-enabled/
+root@ip-172-31-61-187:/etc/nginx/sites-enabled# ls
+default  passbin.ddns.net
+root@ip-172-31-61-187:/etc/nginx/sites-enabled# rm passbin.ddns.net
+root@ip-172-31-61-187:/etc/nginx/sites-enabled# ls
+default
+root@ip-172-31-61-187:/etc/nginx/sites-enabled# cd /etc/nginx/sites-available/
+root@ip-172-31-61-187:/etc/nginx/sites-available# ls
+default
+root@ip-172-31-61-187:/etc/nginx/sites-available# sudo nano /etc/nginx/sites-available/your_domain
+root@ip-172-31-61-187:/etc/nginx/sites-available# ls
+default
+root@ip-172-31-61-187:/etc/nginx/sites-available# sudo nano /etc/nginx/sites-available/passbin.ddns.net
+root@ip-172-31-61-187:/etc/nginx/sites-available# sudo ln -s /etc/nginx/sites-available/passbin.ddns.net /etc/nginx/sites-enabled/
+root@ip-172-31-61-187:/etc/nginx/sites-available# sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+root@ip-172-31-61-187:/etc/nginx/sites-available# sudo systemctl restart nginx
+root@ip-172-31-61-187:/etc/nginx/sites-available# sudo systemctl status nginx
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2023-01-24 14:13:43 UTC; 2min 17s ago
+       Docs: man:nginx(8)
+    Process: 7088 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+    Process: 7091 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+   Main PID: 7092 (nginx)
+      Tasks: 2 (limit: 1143)
+     Memory: 2.6M
+        CPU: 25ms
+     CGroup: /system.slice/nginx.service
+             ├─7092 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             └─7093 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+
+Jan 24 14:13:43 ip-172-31-61-187 systemd[1]: Starting A high performance web server and a reverse proxy server...
+Jan 24 14:13:43 ip-172-31-61-187 systemd[1]: Started A high performance web server and a reverse proxy server.
+root@ip-172-31-61-187:/etc/nginx/sites-available# cd ..
+root@ip-172-31-61-187:/etc/nginx# cd ..
+root@ip-172-31-61-187:/etc# cd ..
+root@ip-172-31-61-187:/# ls
+bin  boot  dev  etc  home  lib  lib32  lib64  libx32  lost+found  media  mnt  opt  proc  root  run  sbin  snap  srv  sys  tmp  usr  var
+root@ip-172-31-61-187:/# cd mnt
+root@ip-172-31-61-187:/mnt# ls
+root@ip-172-31-61-187:/mnt# ls
+root@ip-172-31-61-187:/mnt# cd ..
+root@ip-172-31-61-187:/# cd home
+root@ip-172-31-61-187:/home# ls
+ubuntu
+root@ip-172-31-61-187:/home# cd ubuntu
+root@ip-172-31-61-187:/home/ubuntu# ls
+docker-compose-ce-SHA512SUM.txt  docker-compose-ce.yaml
+root@ip-172-31-61-187:/home/ubuntu# docker pull lojzik/letsencrypt
+Using default tag: latest
+latest: Pulling from lojzik/letsencrypt
+c73ab1c6897b: Pull complete
+dca5ae28cc82: Pull complete
+955f4deb5c52: Pull complete
+93a0b1849412: Pull complete
+bdb1609dedd4: Pull complete
+Digest: sha256:b772c268cae8b6537eb006a97bf26d0550853b029197671973d3c91347cd703f
+Status: Downloaded newer image for lojzik/letsencrypt:latest
+docker.io/lojzik/letsencrypt:latest
+root@ip-172-31-61-187:/home/ubuntu# docker run --rm -it -v "/root/letsencrypt/log:/var/log/letsencrypt" -v "/var/www/html/shared:/var/www/" -v "/etc/letsencrypt:/etc/letsencrypt" -v "/root/letsencrypt/lib:/var/lib/letsencrypt" lojzik/letsencrypt certonly --webroot --webroot-path /var/www --email alexmichealceasar@gmail.com -d passbin.ddns.net
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator webroot, Installer None
+An unexpected error occurred:
+ConnectionError: HTTPSConnectionPool(host='acme-v01.api.letsencrypt.org', port=443): Max retries exceeded with url: /directory (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fb37aeb3190>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+Please see the logfiles in /var/log/letsencrypt for more details.
+root@ip-172-31-61-187:/home/ubuntu# docker images
+REPOSITORY           TAG         IMAGE ID       CREATED       SIZE
+passbolt/passbolt    latest-ce   61c200e9d6a9   5 days ago    307MB
+Preparing to unpack .../07-python3-zope.event_4.4-3_all.deb ...
+Unpacking python3-zope.event (4.4-3) ...
+Selecting previously unselected package python3-zope.component.
+Preparing to unpack .../08-python3-zope.component_4.3.0-3_all.deb ...
+Unpacking python3-zope.component (4.3.0-3) ...
+Selecting previously unselected package python3-certbot.
+Preparing to unpack .../09-python3-certbot_1.21.0-1build1_all.deb ...
+Unpacking python3-certbot (1.21.0-1build1) ...
+Selecting previously unselected package certbot.
+Preparing to unpack .../10-certbot_1.21.0-1build1_all.deb ...
+Unpacking certbot (1.21.0-1build1) ...
+Selecting previously unselected package python3-certbot-nginx.
+Preparing to unpack .../11-python3-certbot-nginx_1.21.0-1_all.deb ...
+Unpacking python3-certbot-nginx (1.21.0-1) ...
+Selecting previously unselected package python3-icu.
+Preparing to unpack .../12-python3-icu_2.8.1-0ubuntu2_amd64.deb ...
+Unpacking python3-icu (2.8.1-0ubuntu2) ...
+Setting up python3-configargparse (1.5.3-1) ...
+Setting up python3-requests-toolbelt (0.9.1-1) ...
+Setting up python3-parsedatetime (2.6-2) ...
+Setting up python3-icu (2.8.1-0ubuntu2) ...
+Setting up python3-zope.event (4.4-3) ...
+Setting up python3-zope.hookable (5.1.0-1build1) ...
+Setting up python3-josepy (1.10.0-1) ...
+Setting up python3-rfc3339 (1.1-3) ...
+Setting up python3-zope.component (4.3.0-3) ...
+Setting up python3-acme (1.21.0-1) ...
+Setting up python3-certbot (1.21.0-1build1) ...
+Setting up certbot (1.21.0-1build1) ...
+Created symlink /etc/systemd/system/timers.target.wants/certbot.timer → /lib/systemd/system/certbot.timer.
+Setting up python3-certbot-nginx (1.21.0-1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+root@ip-172-31-61-187:/home/ubuntu# sudo systemctl reload nginx
+root@ip-172-31-61-187:/home/ubuntu# sudo systemctl satus nginx
+Unknown command verb satus.
+root@ip-172-31-61-187:/home/ubuntu# sudo systemctl status nginx
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2023-01-24 14:13:43 UTC; 16min ago
+       Docs: man:nginx(8)
+    Process: 8111 ExecReload=/usr/sbin/nginx -g daemon on; master_process on; -s reload (code=exited, status=0/SUCCESS)
+   Main PID: 7092 (nginx)
+      Tasks: 2 (limit: 1143)
+     Memory: 10.1M
+        CPU: 53ms
+     CGroup: /system.slice/nginx.service
+             ├─7092 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             └─8112 "nginx: worker process" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+
+Jan 24 14:13:43 ip-172-31-61-187 systemd[1]: Starting A high performance web server and a reverse proxy server...
+Jan 24 14:13:43 ip-172-31-61-187 systemd[1]: Started A high performance web server and a reverse proxy server.
+Jan 24 14:30:03 ip-172-31-61-187 systemd[1]: Reloading A high performance web server and a reverse proxy server...
+Jan 24 14:30:04 ip-172-31-61-187 systemd[1]: Reloaded A high performance web server and a reverse proxy server.
+root@ip-172-31-61-187:/home/ubuntu# sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+root@ip-172-31-61-187:/home/ubuntu# sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+Nginx HTTP                 ALLOW       Anywhere
+22/tcp                     ALLOW       Anywhere
+Nginx HTTP (v6)            ALLOW       Anywhere (v6)
+22/tcp (v6)                ALLOW       Anywhere (v6)
+
+root@ip-172-31-61-187:/home/ubuntu# sudo ufw allow 'Nginx Full'
+Rule added
+Rule added (v6)
+root@ip-172-31-61-187:/home/ubuntu# sudo ufw delete allow 'Nginx HTTP'
+Rule deleted
+Rule deleted (v6)
+root@ip-172-31-61-187:/home/ubuntu# sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW       Anywhere
+Nginx Full                 ALLOW       Anywhere
+22/tcp (v6)                ALLOW       Anywhere (v6)
+Nginx Full (v6)            ALLOW       Anywhere (v6)
+
+root@ip-172-31-61-187:/home/ubuntu# sudo certbot --nginx -d passbin.ddns.net
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Enter email address (used for urgent renewal and security notices)
+ (Enter 'c' to cancel): alexmichealceasar@gmail.com
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Please read the Terms of Service at
+https://letsencrypt.org/documents/LE-SA-v1.3-September-21-2022.pdf. You must
+agree in order to register with the ACME server. Do you agree?
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(Y)es/(N)o: y
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Would you be willing, once your first certificate is successfully issued, to
+share your email address with the Electronic Frontier Foundation, a founding
+partner of the Let's Encrypt project and the non-profit organization that
+develops Certbot? We'd like to send you email about our work encrypting the web,
+EFF news, campaigns, and ways to support digital freedom.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+(Y)es/(N)o: y
+Account registered.
+Requesting a certificate for passbin.ddns.net
+
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/passbin.ddns.net/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/passbin.ddns.net/privkey.pem
+This certificate expires on 2023-04-24.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+Deploying certificate
+Successfully deployed certificate for passbin.ddns.net to /etc/nginx/sites-enabled/passbin.ddns.net
+Congratulations! You have successfully enabled HTTPS on https://passbin.ddns.net
+We were unable to subscribe you the EFF mailing list because your e-mail address appears to be invalid. You can try again later by visiting https://act.eff.org.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+root@ip-172-31-61-187:/home/ubuntu#
