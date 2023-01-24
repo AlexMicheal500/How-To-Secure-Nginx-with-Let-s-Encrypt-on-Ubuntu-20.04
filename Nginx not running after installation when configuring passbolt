@@ -1,0 +1,18 @@
+To solve this run the following commands:
+sudo lsof -i:80
+Try to stop the process which are using the port 80 using:
+
+sudo fuser -k 80/tcp
+sudo systemctl restart nginx
+
+The above should work
+
+But if not do the below:
+In some cases it may be some issues in the configuration file.
+
+You can use nginx -t -c /etc/nginx/nginx.conf command to find any miss-configuration.
+
+In some cases this error is caused by a default Nginx site already on port 80. Removing default config works if you don't need a default one!
+
+sudo rm /etc/nginx/sites-enabled/default
+sudo service nginx restart
