@@ -17,3 +17,5 @@ NOTE: i. Do not install ssl certificate before doing this step. Else it will fai
 4. To install SSL certificate follow the link https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04
 
 5. To not allow users have access to your site, from the inbound rule in AWS, remove port 8080. This is for security reason and so the proxy deals with http requests while the ip:8080 deals with the web app.
+
+You can also learn how to do this on a docker container https://medium.com/@schubert_3488
