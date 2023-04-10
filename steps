@@ -82,11 +82,13 @@ OpenSSH (v6)               ALLOW       Anywhere (v6)
 Nginx Full (v6)            ALLOW       Anywhere (v6)
 Next, let’s run Certbot and fetch our certificates.
 
-NOTE: If not active run the folloeing commands:
+=================================================================================================================================================================
+NOTE: If UFW is not active run the folloeing commands:
 sudo apt-get install ufw
 sudo ufw allow ssh
 sudo ufw enable
 sudo ufw status
+==================================================================================================================================================================
 
 Step 4 — Obtaining an SSL Certificate
 Certbot provides a variety of ways to obtain SSL certificates through plugins. The Nginx plugin will take care of reconfiguring Nginx and reloading the config whenever necessary. To use this plugin, type the following:
